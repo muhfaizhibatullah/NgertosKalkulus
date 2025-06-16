@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ngertoskalkulus - Belajar Kalkulus dengan Mudah</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@11.8.0/math.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            bottom: -5px;
+            left: 0;
+            background-color: #10b981;
+        }
+        .math-icon {
+            font-size: 1.5rem;
+            color: #10b981;
+            margin-right: 0.5rem;
+        }
+        .formula-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+        }
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+        .fade-in.visible {
+            opacity: 1;
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
+            overscroll-behavior-y: contain;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        @media (max-width: 768px) {
+            .parallax {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body class="smooth-scroll bg-white text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-2">NK</div>
+                <h1 class="text-2xl font-bold text-green-600">ngertoskalkulus</h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#home" class="hover:text-green-600 transition">Beranda</a></li>
+                    <li><a href="#intro" class="hover:text-green-600 transition">Pendahuluan</a></li>
+                    <li><a href="#materials" class="hover:text-green-600 transition">Materi</a></li>
+                    <li><a href="#applications" class="hover:text-green-600 transition">Aplikasi</a></li>
+                    <li><a href="#visuals" class="hover:text-green-600 transition">Visual</a></li>
+                    <li><a href="#creator" class="hover:text-green-600 transition">Pembuat</a></li>
+                    <li><a href="#report" class="hover:text-green-600 transition">Laporan</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden text-green-600" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
+            <div class="container mx-auto px-4 py-2">
+                <ul class="flex flex-col space-y-2">
+                    <li><a href="#home" class="block py-2 hover:text-green-600 transition">Beranda</a></li>
+                    <li><a href="#intro" class="block py-2 hover:text-green-600 transition">Pendahuluan</a></li>
+                    <li><a href="#materials" class="block py-2 hover:text-green-600 transition">Materi</a></li>
+                    <li><a href="#applications" class="block py-2 hover:text-green-600 transition">Aplikasi</a></li>
+                    <li><a href="#visuals" class="block py-2 hover:text-green-600 transition">Visual</a></li>
+                    <li><a href="#creator" class="block py-2 hover:text-green-600 transition">Pembuat</a></li>
+                    <li><a href="#report" class="block py-2 hover:text-green-600 transition">Laporan</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="parallax bg-gradient-to-r from-green-50 to-white py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Belajar Kalkulus dengan <span class="text-green-600">Mudah</span></h1>
+                <p class="text-lg text-gray-600 mb-8">Temukan keindahan matematika melalui konsep-konsep kalkulus yang disajikan secara sederhana dan interaktif. Mulai dari dasar hingga aplikasi nyata dalam berbagai bidang.</p>
+                <div class="flex space-x-4">
+                    <a href="#intro" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition shadow-md">Mulai Belajar</a>
+                    <a href="#materials" class="border-2 border-green-600 text-green-600 hover:bg-green-50 px-6 py-3 rounded-lg font-medium transition">Lihat Materi</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 fade-in">
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Kalkulus" class="rounded-xl shadow-xl w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="intro" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title">Pendahuluan</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Pengertian Kalkulus -->
+                <div class="bg-green-50 p-6 rounded-xl shadow-sm fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-square-root-alt math-icon"></i>
+                        <h3 class="text-xl font-semibold">Pengertian Kalkulus</h3>
+                    </div>
+                    <p class="text-gray-700">Kalkulus adalah cabang matematika yang mempelajari perubahan, mencakup konsep limit, turunan, integral, dan deret tak hingga. Kalkulus dibagi menjadi dua bagian utama: kalkulus diferensial dan kalkulus integral.</p>
+                </div>
+                
+                <!-- Sejarah Kalkulus -->
+                <div class="bg-green-50 p-6 rounded-xl shadow-sm fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-history math-icon"></i>
+                        <h3 class="text-xl font-semibold">Sejarah Kalkulus</h3>
+                    </div>
+                    <p class="text-gray-700">Dikembangkan secara independen oleh Isaac Newton dan Gottfried Wilhelm Leibniz pada abad ke-17. Perkembangannya terus berlanjut dengan kontribusi dari matematikawan seperti Euler, Cauchy, dan Riemann.</p>
+                </div>
+                
+                <!-- Kegunaan Kalkulus -->
+                <div class="bg-green-50 p-6 rounded-xl shadow-sm fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-globe-americas math-icon"></i>
+                        <h3 class="text-xl font-semibold">Kegunaan Kalkulus</h3>
+                    </div>
+                    <p class="text-gray-700">Kalkulus digunakan dalam fisika (mekanika, termodinamika), ekonomi (optimasi biaya), teknik (desain struktur), biologi (pertumbuhan populasi), dan banyak bidang lainnya untuk memodelkan dan memecahkan masalah nyata.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materials Section -->
+    <section id="materials" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title">Materi Kalkulus</h2>
+            
+            <!-- Limit -->
+            <!-- <div class="bg-white p-6 rounded-xl shadow-sm mb-8 fade-in">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-infinity math-icon"></i>
+                    <h3 class="text-2xl font-semibold">Limit</h3>
+                </div>
+                <p class="text-gray-700 mb-4">Limit adalah konsep fundamental dalam kalkulus yang menggambarkan perilaku suatu fungsi ketika inputnya mendekati suatu nilai tertentu.</p>
+                
+                <div class="formula-box">
+                    <p>lim<sub>x→a</sub> f(x) = L</p>
+                </div>
+                
+                <p class="text-gray-700 mb-2"><strong>Sifat-sifat Limit:</strong></p>
+                <ul class="list-disc pl-5 text-gray-700 mb-4">
+                    <li class="mb-2">Limit jumlah adalah jumlah limit: lim(f+g) = lim f + lim g</li>
+                    <li class="mb-2">Limit perkalian adalah perkalian limit: lim(f·g) = lim f · lim g</li>
+                    <li>Limit komposisi: lim f(g(x)) = f(lim g(x))</li>
+                </ul>
+                
+                <div class="bg-green-100 p-4 rounded-lg">
+                    <p class="font-semibold text-green-800">Contoh:</p>
+                    <p class="text-gray-700">Hitung lim<sub>x→2</sub> (x² + 3x - 2)</p>
+                    <p class="text-gray-700">Solusi: Substitusi langsung → 2² + 3(2) - 2 = 4 + 6 - 2 = 8</p>
+                </div>
+            </div> -->
+            
+            <!-- Turunan -->
+            <!-- <div class="bg-white p-6 rounded-xl shadow-sm mb-8 fade-in">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-slope math-icon"></i>
+                    <h3 class="text-2xl font-semibold">Turunan</h3>
+                </div>
+                <p class="text-gray-700 mb-4">Turunan mengukur seberapa cepat suatu fungsi berubah ketika inputnya berubah. Secara geometris, ini mewakili kemiringan garis singgung pada titik tertentu.</p>
+                
+                <div class="formula-box">
+                    <p>f'(x) = lim<sub>h→0</sub> [f(x+h) - f(x)] / h</p>
+                </div>
+                
+                <p class="text-gray-700 mb-2"><strong>Aturan Dasar Turunan:</strong></p>
+                <ul class="list-disc pl-5 text-gray-700 mb-4">
+                    <li class="mb-2">Konstan: d/dx [c] = 0</li>
+                    <li class="mb-2">Pangkat: d/dx [xⁿ] = nxⁿ⁻¹</li>
+                    <li class="mb-2">Jumlah: d/dx [f+g] = f' + g'</li>
+                    <li>Perkalian: d/dx [f·g] = f'g + fg'</li>
+                </ul>
+                
+                <div class="bg-green-100 p-4 rounded-lg">
+                    <p class="font-semibold text-green-800">Contoh:</p>
+                    <p class="text-gray-700">Turunan dari f(x) = 3x² + 2x - 5</p>
+                    <p class="text-gray-700">Solusi: f'(x) = 6x + 2</p>
+                </div>
+            </div> -->
+            
+            <!-- Integral -->
+           <div class="max-w-6xl mx-auto p-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Integral -->
+    <div class="bg-white p-6 rounded-xl shadow-sm fade-in">
+        <div class="flex items-center mb-4">
+            <i class="fas fa-integral math-icon mr-2 text-green-600 text-2xl"></i>
+            <h3 class="text-2xl font-semibold">Integral</h3>
+        </div>
+        <p class="text-gray-700 mb-4">Integral adalah operasi kebalikan dari turunan. Integral tak tentu menghasilkan sebuah fungsi, sedangkan integral tentu memberikan sebuah nilai.</p>
+        
+        <div class="formula-box mb-4 p-4 bg-green-100 rounded-lg">
+            <p>∫f(x) dx = F(x) + C, dimana F'(x) = f(x)</p>
+        </div>
+        
+        <p class="text-gray-700 mb-2"><strong>Teknik Integrasi:</strong></p>
+        <ul class="list-disc pl-5 text-gray-700 mb-4">
+            <li class="mb-2">Substitusi</li>
+            <li class="mb-2">Parsial</li>
+            <li>Pecahan parsial</li>
+        </ul>
+        
+        <div class="bg-green-100 p-4 rounded-lg">
+            <p class="font-semibold text-green-800">Contoh:</p>
+            <p class="text-gray-700">∫(3x² + 2x - 5) dx = x³ + x² - 5x + C</p>
+        </div>
+    </div>
+
+    <!-- Turunan -->
+    <div class="bg-white p-6 rounded-xl shadow-sm fade-in">
+        <div class="flex items-center mb-4">
+            <i class="fas fa-calculator math-icon mr-2 text-green-600 text-2xl"></i>
+            <h3 class="text-2xl font-semibold">Turunan</h3>
+        </div>
+        <p class="text-gray-700 mb-4">Turunan merupakan ukuran laju perubahan sebuah fungsi terhadap variabelnya.</p>
+
+        <div class="formula-box mb-4 p-4 bg-green-100 rounded-lg">
+            <p>f'(x) = lim<sub>h→0</sub> [(f(x+h) - f(x)) / h]</p>
+        </div>
+
+        <p class="text-gray-700 mb-2"><strong>Aturan Turunan:</strong></p>
+        <ul class="list-disc pl-5 text-gray-700 mb-4">
+            <li class="mb-2">Aturan penjumlahan</li>
+            <li class="mb-2">Aturan perkalian</li>
+            <li>Aturan rantai</li>
+        </ul>
+
+        <div class="bg-green-100 p-4 rounded-lg">
+            <p class="font-semibold text-green-800">Contoh:</p>
+            <p class="text-gray-700">(x³)' = 3x²</p>
+        </div>
+    </div>
+
+    <!-- Limit -->
+    <div class="bg-white p-6 rounded-xl shadow-sm fade-in">
+        <div class="flex items-center mb-4">
+            <i class="fas fa-arrow-right math-icon mr-2 text-green-600 text-2xl"></i>
+            <h3 class="text-2xl font-semibold">Limit</h3>
+        </div>
+        <p class="text-gray-700 mb-4">Limit mendeskripsikan perilaku sebuah fungsi saat mendekati sebuah titik.</p>
+
+        <div class="formula-box mb-4 p-4 bg-green-100 rounded-lg">
+            <p>lim<sub>x→a</sub> f(x) = L</p>
+        </div>
+
+        <p class="text-gray-700 mb-2"><strong>Metode:</strong></p>
+        <ul class="list-disc pl-5 text-gray-700 mb-4">
+            <li class="mb-2">Faktorisasi</li>
+            <li class="mb-2">Rasionalisasi</li>
+            <li>L'Hospital</li>
+        </ul>
+
+        <div class="bg-green-100 p-4 rounded-lg">
+            <p class="font-semibold text-green-800">Contoh:</p>
+            <p class="text-gray-700">lim<sub>x→2</sub> (x² - 4) / (x - 2) = 4</p>
+        </div>
+    </div>
+
+    <!-- Deret -->
+    <div class="bg-white p-6 rounded-xl shadow-sm fade-in">
+        <div class="flex items-center mb-4">
+            <i class="fas fa-list-ol math-icon mr-2 text-green-600 text-2xl"></i>
+            <h3 class="text-2xl font-semibold">Deret</h3>
+        </div>
+        <p class="text-gray-700 mb-4">Deret merupakan penjumlahan dari sebuah barisan.</p>
+
+        <div class="formula-box mb-4 p-4 bg-green-100 rounded-lg">
+            <p>∑ a<sub>n</sub>, n = 1, 2, 3, …</p>
+        </div>
+
+        <p class="text-gray-700 mb-2"><strong>Jenis Deret:</strong></p>
+        <ul class="list-disc pl-5 text-gray-700 mb-4">
+            <li class="mb-2">Deret Aritmatika</li>
+            <li class="mb-2">Deret Geometri</li>
+            <li>Deret Tak Hingga</li>
+        </ul>
+
+        <div class="bg-green-100 p-4 rounded-lg">
+            <p class="font-semibold text-green-800">Contoh:</p>
+            <p class="text-gray-700">1 + 2 + 3 + … + n = n(n + 1) / 2</p>
+        </div>
+    </div>
+
+    <!-- Matriks -->
+    <div class="bg-white p-6 rounded-xl shadow-sm fade-in">
+        <div class="flex items-center mb-4">
+            <i class="fas fa-table math-icon mr-2 text-green-600 text-2xl"></i>
+            <h3 class="text-2xl font-semibold">Matriks</h3>
+        </div>
+        <p class="text-gray-700 mb-4">Matriks merupakan susunan bilangan yang diorganisir ke dalam baris dan kolom.</p>
+
+        <div class="formula-box mb-4 p-4 bg-green-100 rounded-lg">
+            <p>A = [ a₁₁ a₁₂ ; a₂₁ a₂₂ ]</p>
+        </div>
+
+        <p class="text-gray-700 mb-2"><strong>Operasi Matriks:</strong></p>
+        <ul class="list-disc pl-5 text-gray-700 mb-4">
+            <li class="mb-2">Penjumlahan</li>
+            <li class="mb-2">Perkalian</li>
+            <li>Determinan dan Transpose</li>
+        </ul>
+
+        <div class="bg-green-100 p-4 rounded-lg">
+            <p class="font-semibold text-green-800">Contoh:</p>
+            <p class="text-gray-700">
+                A + B = [ a₁₁ + b₁₁ a₁₂ + b₁₂ ; a₂₁ + b₂₁ a₂₂ + b₂₂ ]
+            </p>
+        </div>
+    </div>
+
+    <!-- Statistik -->
+    <div class="bg-white p-6 rounded-xl shadow-sm fade-in">
+        <div class="flex items-center mb-4">
+            <i class="fas fa-chart-pie math-icon mr-2 text-green-600 text-2xl"></i>
+            <h3 class="text-2xl font-semibold">Statistik</h3>
+        </div>
+        <p class="text-gray-700 mb-4">Statistik berguna untuk menganalisa dan menyimpulkan data.</p>
+
+        <div class="formula-box mb-4 p-4 bg-green-100 rounded-lg">
+            <p>Rata-rata (mean) = (∑x) / n</p>
+        </div>
+
+        <p class="text-gray-700 mb-2"><strong> ukuran Statistik:</strong></p>
+        <ul class="list-disc pl-5 text-gray-700 mb-4">
+            <li class="mb-2">Rata-rata, Median, Modus</li>
+            <li class="mb-2">Variansi dan Standar Deviasi</li>
+            <li>Korelasi dan Regresi</li>
+        </ul>
+
+        <div class="bg-green-100 p-4 rounded-lg">
+            <p class="font-semibold text-green-800">Contoh:</p>
+            <p class="text-gray-700">
+                Mean dari 2, 4, 6, 8, 10 = (2 + 4 + 6 + 8 + 10) / 5 = 6
+            </p>
+        </div>
+    </div>
+</div>
+
+            
+            <!-- More materials can be added similarly -->
+            <!-- <div class="text-center mt-8">
+                <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition shadow-md" id="load-more">Muat Lebih Banyak Materi</button>
+            </div> -->
+        </div>
+    </section>
+
+   <section id="kalkulator" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4 flex justify-center">
+    <div>
+
+      <h1 class="text-4xl font-semibold mb-6 text-green-800 text-center">
+        Kalkulator Matematika
+      </h1>
+
+      <div class="bg-white p-8 rounded-xl shadow-md max-w-xl">
+        <label for="calculusSelect" class="block mb-4 font-semibold text-gray-700 text-lg">
+          Pilih materi:
+        </label>
+        <select id="calculusSelect" 
+                class="p-3 border rounded-lg w-full mb-6 text-lg">
+          <option value="">-- Pilih --</option>
+          <option value="integral">Integral (definit)</option>
+          <option value="turunan">Turunan</option>
+          <option value="limit">Limit</option>
+          <option value="deret">Deret Aritmatika</option>
+          <option value="matriks">Matriks Penjumlahan</option>
+          <option value="statistik">Statistik (Rata-rata)</option>
+        </select>
+
+        <div id="inputArea" class="mb-6 p-6 bg-green-100 rounded-lg">
+          <!-- Input sesuai materi -->
+        </div>
+
+        <button id="calculateBtn" 
+                class="px-6 py-3 bg-green-600 text-gray-100 font-semibold rounded-md text-lg">
+          Hitung
+        </button>
+
+        <div id="result" 
+             class="mt-6 p-6 bg-green-50 rounded-lg text-gray-800 text-lg">
+          Hasil akan tampil di sini.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+        
+           
+        </div>
+         </section>
+
+    <!-- Applications Section -->
+    <section id="applications" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title">Aplikasi Kalkulus</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Aplikasi Turunan -->
+                <div class="bg-green-50 p-6 rounded-xl shadow-sm fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-chart-line math-icon"></i>
+                        <h3 class="text-xl font-semibold">Aplikasi Turunan</h3>
+                    </div>
+                    <ul class="list-disc pl-5 text-gray-700">
+                        <li class="mb-2"><strong>Fisika:</strong> Kecepatan sebagai turunan posisi terhadap waktu, percepatan sebagai turunan kecepatan.</li>
+                        <li class="mb-2"><strong>Ekonomi:</strong> Biaya marjinal adalah turunan fungsi biaya total, pendapatan marjinal adalah turunan pendapatan total.</li>
+                        <li class="mb-2"><strong>Optimasi:</strong> Mencari nilai maksimum/minimum fungsi untuk efisiensi produksi atau keuntungan.</li>
+                        <li><strong>Biologi:</strong> Laju pertumbuhan populasi sebagai turunan fungsi populasi terhadap waktu.</li>
+                    </ul>
+                </div>
+                
+                <!-- Aplikasi Integral -->
+                <div class="bg-green-50 p-6 rounded-xl shadow-sm fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-chart-area math-icon"></i>
+                        <h3 class="text-xl font-semibold">Aplikasi Integral</h3>
+                    </div>
+                    <ul class="list-disc pl-5 text-gray-700">
+                        <li class="mb-2"><strong>Luas Daerah:</strong> Menghitung luas di bawah kurva atau antara dua kurva.</li>
+                        <li class="mb-2"><strong>Volume Benda Putar:</strong> Menggunakan metode cakram atau kulit tabung.</li>
+                        <li class="mb-2"><strong>Fisika:</strong> Posisi sebagai integral kecepatan, kerja sebagai integral gaya.</li>
+                        <li><strong>Probabilitas:</strong> Distribusi kontinu menggunakan integral untuk menghitung peluang.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Visual Example -->
+            <div class="mt-12 bg-white p-6 rounded-xl shadow-sm fade-in">
+                <h3 class="text-xl font-semibold mb-4 text-center">Contoh Visual Aplikasi</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-medium text-green-700 mb-2">Optimasi Area</h4>
+                        <p class="text-gray-700 mb-4">Dengan kalkulus, kita dapat menentukan dimensi optimal untuk area tertentu. Misalnya, mencari ukuran persegi panjang dengan keliling tertentu yang memiliki luas maksimum.</p>
+                        <div class="formula-box">
+                            <p>Keliling: P = 2x + 2y</p>
+                            <p>Luas: A = xy</p>
+                            <p>Substitusi: A(x) = x(P/2 - x)</p>
+                            <p>Turunan: A'(x) = P/2 - 2x</p>
+                            <p>Set A' = 0 → x = P/4 → y = P/4</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <div class="w-64 h-64 bg-green-100 rounded-lg flex items-center justify-center">
+                            <div class="w-40 h-40 bg-green-300 rounded flex items-center justify-center text-white font-bold">
+                                Persegi<br>Optimal
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visuals Section -->
+    <section id="visuals" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title">Visualisasi Kalkulus</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Grafik Turunan -->
+                <div class="bg-white p-6 rounded-xl shadow-sm fade-in">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-project-diagram math-icon"></i>
+                        <span>Grafik Turunan</span>
+                    </h3>
+                    <div class="h-64 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <canvas id="derivativeChart" class="w-full h-full"></canvas>
+                    </div>
+                    <p class="text-gray-700">Visualisasi ini menunjukkan hubungan antara fungsi asli (biru) dan turunannya (hijau). Perhatikan bagaimana kemiringan fungsi asli berkorelasi dengan nilai turunan.</p>
+                    <div class="mt-4">
+                        <label for="functionInput" class="block text-sm font-medium text-gray-700">Ubah Fungsi:</label>
+                        <input type="text" id="functionInput" value="Math.sin(x)" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 p-2 border">
+                    </div>
+                </div>
+                
+                <!-- Grafik Integral -->
+                <div class="bg-white p-6 rounded-xl shadow-sm fade-in">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-chart-pie math-icon"></i>
+                        <span>Grafik Integral</span>
+                    </h3>
+                    <div class="h-64 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <canvas id="integralChart" class="w-full h-full"></canvas>
+                    </div>
+                    <p class="text-gray-700">Area di bawah kurva mewakili nilai integral. Geser batas bawah dan atas untuk melihat perubahan nilai integral.</p>
+                    <div class="mt-4 grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="lowerLimit" class="block text-sm font-medium text-gray-700">Batas Bawah:</label>
+                            <input type="range" id="lowerLimit" min="0" max="5" step="0.1" value="1" class="mt-1 block w-full">
+                        </div>
+                        <div>
+                            <label for="upperLimit" class="block text-sm font-medium text-gray-700">Batas Atas:</label>
+                            <input type="range" id="upperLimit" min="0" max="5" step="0.1" value="3" class="mt-1 block w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3D Visualization -->
+            <div class="bg-white p-6 rounded-xl shadow-sm fade-in">
+                <h3 class="text-xl font-semibold mb-4 flex items-center justify-center">
+                    <i class="fas fa-cube math-icon"></i>
+                    <span>Visualisasi 3D Fungsi Multivariabel</span>
+                </h3>
+                <div class="h-96 bg-green-100 rounded-lg">
+                    <div id="3d-container" class="w-full h-full"></div>
+                </div>
+                <div class="mt-4 grid md:grid-cols-3 gap-4">
+                    <div>
+                        <label for="func3d" class="block text-sm font-medium text-gray-700">Fungsi 3D:</label>
+                        <select id="func3d" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 p-2 border">
+                            <option value="x²+y²">z = x² + y² (Paraboloid)</option>
+                            <option value="sin(x)+cos(y)">z = sin(x) + cos(y)</option>
+                            <option value="x*y">z = x*y (Saddle)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="rotateX" class="block text-sm font-medium text-gray-700">Rotasi X:</label>
+                        <input type="range" id="rotateX" min="0" max="360" value="30" class="mt-1 block w-full">
+                    </div>
+                    <div>
+                        <label for="rotateY" class="block text-sm font-medium text-gray-700">Rotasi Y:</label>
+                        <input type="range" id="rotateY" min="0" max="360" value="45" class="mt-1 block w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creator Section -->
+    <section id="creator" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title">Pembuat Website</h2>
+            
+            <div class="max-w-6xl mx-auto p-4">
+    <div class="flex gap-6">
+        <!-- Card 1 -->
+        <div class="max-w-6xl mx-auto p-4">
+    <div class="flex flex-col md:flex-row gap-6">
+        <!-- Card 1 -->
+        <div class="flex-1 bg-green-50 rounded-xl shadow-sm overflow-hidden fade-in">
+            <div class="flex flex-col items-center p-8">
+                <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
+                    <img src="WhatsApp Image 2025-04-21 at 09.27.52_3d65d969.jpg" alt="Foto Profil" class="w-full h-full object-cover object-top">
+                </div>
+                
+                <h3 class="text-2xl font-semibold text-gray-800 mb-2">Muh Faiz Hibatullah</h3>
+                <p class="text-green-600 mb-4">Mahasiswa Universitas boyolali</p>
+                <p class="text-gray-700 mb-4 text-center">
+                    Jangan pernah menyerah, karena kesuksesan adalah milik mereka yang terus melangkah
+                </p>
+
+                <div class="mt-6 w-full">
+                    <h4 class="font-semibold text-gray-800 mb-2">Kontak:</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-green-600 mr-2"></i>
+                            <span>Faizhibatullah2604@gmail.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-instagram text-green-600 mr-2"></i>
+                            <span>faizhiba_</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="flex-1 bg-green-50 rounded-xl shadow-sm overflow-hidden fade-in">
+            <div class="flex flex-col items-center p-8">
+                <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
+                    <img src="WhatsApp Image 2025-04-21 at 11.52.37_43d5191a.jpg" alt="Foto Profil" class="w-full h-full object-cover object-top">
+                </div>
+
+                <h3 class="text-2xl font-semibold text-gray-800 mb-2">Eka Ristia Ningrum</h3>
+                <p class="text-green-600 mb-4">Mahasiswa Universitas boyolali</p>
+                <p class="text-gray-700 mb-4 text-center">
+                    Sukses bukan terjadi secara instan, tapi dari proses yang terus menerus
+                </p>
+
+                <div class="mt-6 w-full">
+                    <h4 class="font-semibold text-gray-800 mb-2">Kontak:</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-green-600 mr-2"></i>
+                            <span>ekaristia7@gmail.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-instagram text-green-600 mr-2"></i>
+                            <span>ekaarstia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+        </div>
+    </section>
+
+    <!-- Report Section -->
+    <section id="report" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title">Laporan Masalah</h2>
+            
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-sm fade-in" id="report-form">
+                <form id="reportForm">
+                    <div class="mb-6">
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama Anda</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-green-500">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-green-500">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subjek Masalah</label>
+                        <select id="subject" name="subject" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-green-500">
+                            <option value="error">Kesalahan Konten</option>
+                            <option value="question">Pertanyaan</option>
+                            <option value="suggestion">Saran</option>
+                            <option value="other">Lainnya</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Deskripsi Masalah</label>
+                        <textarea id="description" name="description" rows="5" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-green-500"></textarea>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition shadow-md">Kirim Laporan</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Success Message (hidden by default) -->
+            <div id="success-message" class="max-w-2xl mx-auto bg-green-100 border border-green-400 text-green-700 px-4 py-8 rounded text-center hidden fade-in">
+                <i class="fas fa-check-circle text-5xl mb-4 text-green-500"></i>
+                <h3 class="text-2xl font-bold mb-2">Terima Kasih!</h3>
+                <p class="mb-4">Laporan Anda telah berhasil dikirim. Kami akan meninjau dan memperbaiki masalah tersebut secepatnya.</p>
+                <button id="back-to-form" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium transition">Kembali ke Form</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-800 text-white py-12">
+        <div class="container mx-auto px-4">
+             <div class="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+        
+        <!-- Logo / Deskripsi -->
+        <div>
+            <h3 class="text-2xl font-bold mb-4 text-green-500">Ngertoskalkulus</h3>
+            <p class="text-green-200 leading-relaxed">
+                Platform edukasi kalkulus interaktif untuk semua tingkat pembelajaran.
+            </p>
+        </div>
+
+        <!-- Navigasi -->
+        <div>
+            <h4 class="font-semibold mb-4 text-green-500">Navigasi</h4>
+            <ul class="space-y-2">
+                <li>
+                    <a 
+                      href="#home" 
+                      class="text-green-200 hover:text-green-400 transition">
+                      Beranda
+                    </a>
+                </li>
+                <li>
+                    <a 
+                      href="#intro" 
+                      class="text-green-200 hover:text-green-400 transition">
+                      Pendahuluan
+                    </a>
+                </li>
+                <li>
+                    <a 
+                      href="#materials" 
+                      class="text-green-200 hover:text-green-400 transition">
+                      Materi
+                    </a>
+                </li>
+                <li>
+                    <a 
+                      href="#applications" 
+                      class="text-green-200 hover:text-green-400 transition">
+                      Aplikasi
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Kontak -->
+        <div>
+            <h4 class="font-semibold mb-4 text-green-500">Kontak</h4>
+            <ul class="space-y-2">
+                <li class="flex items-center">
+                    <i class="fas fa-envelope mr-2 text-green-500"></i>
+                    <span class="text-green-200">F2406103505001@student.uby.ac.id</span>
+                </li>
+                <li class="flex items-center">
+                    <i class="fab fa-instagram mr-2 text-green-500"></i>
+                    <span class="text-green-200">faizhiba_</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Motivasi -->
+        <div>
+            <h4 class="font-semibold mb-4 text-green-500">Motivasi</h4>
+            <p class="text-green-200 leading-relaxed">
+                “Jangan pernah menyerah, karena kesuksesan adalah milik mereka yang terus melangkah.” 🌟
+            </p>
+        </div>
+
+    </div>
+            
+            <div class="border-t border-green-700 mt-8 pt-8 text-center text-green-300">
+                <p>&copy; 2025 Prayan'. All rights reserved.</p>
+                <p class="mt-2 text-sm">Disclaimer: Website ini dibuat untuk tujuan edukasi. Konten matematika telah disederhanakan untuk pemahaman yang lebih mudah.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script>
+      
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Enhanced Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Chart for Derivative Visualization
+        const derivativeCtx = document.getElementById('derivativeChart').getContext('2d');
+        const derivativeChart = new Chart(derivativeCtx, {
+            type: 'line',
+            data: {
+                labels: Array.from({length: 21}, (_, i) => (i - 10) / 2),
+                datasets: [
+                    {
+                        label: 'Fungsi f(x)',
+                        data: [],
+                        borderColor: 'rgb(59, 130, 246)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    },
+                    {
+                        label: 'Turunan f\'(x)',
+                        data: [],
+                        borderColor: 'rgb(16, 185, 129)',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Chart for Integral Visualization
+        const integralCtx = document.getElementById('integralChart').getContext('2d');
+        const integralChart = new Chart(integralCtx, {
+            type: 'line',
+            data: {
+                labels: Array.from({length: 21}, (_, i) => i / 4),
+                datasets: [
+                    {
+                        label: 'Fungsi f(x)',
+                        data: [],
+                        borderColor: 'rgb(59, 130, 246)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Area Integral',
+                        data: [],
+                        backgroundColor: 'rgba(16, 185, 129, 0.5)',
+                        fill: {
+                            target: 'origin',
+                            above: 'rgba(16, 185, 129, 0.3)'
+                        },
+                        pointRadius: 0
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Function to update charts
+        function updateCharts() {
+            // Get function from input
+            const funcInput = document.getElementById('functionInput').value;
+            
+            // Update derivative chart
+            const derivativeData = [];
+            const derivativeDerivative = [];
+            
+            for (let i = -10; i <= 10; i += 0.5) {
+                const x = i / 2;
+                let y;
+                try {
+                    y = eval(funcInput.replace(/x/g, x));
+                } catch (e) {
+                    y = 0;
+                }
+                derivativeData.push(y);
+                
+                // Approximate derivative (f(x+h)-f(x))/h
+                const h = 0.0001;
+                let dy;
+                try {
+                    const yh = eval(funcInput.replace(/x/g, x+h));
+                    dy = (yh - y) / h;
+                } catch (e) {
+                    dy = 0;
+                }
+                derivativeDerivative.push(dy);
+            }
+            
+            derivativeChart.data.datasets[0].data = derivativeData;
+            derivativeChart.data.datasets[1].data = derivativeDerivative;
+            derivativeChart.update();
+            
+            // Update integral chart
+            const integralData = [];
+            for (let i = 0; i <= 20; i++) {
+                const x = i / 4;
+                let y;
+                try {
+                    y = eval(funcInput.replace(/x/g, x));
+                } catch (e) {
+                    y = 0;
+                }
+                integralData.push(y);
+            }
+            
+            integralChart.data.datasets[0].data = integralData;
+            
+            // Update integral area
+            const lowerLimit = parseFloat(document.getElementById('lowerLimit').value);
+            const upperLimit = parseFloat(document.getElementById('upperLimit').value);
+            
+            const integralAreaData = integralData.map((y, idx) => {
+                const x = idx / 4;
+                return (x >= lowerLimit && x <= upperLimit) ? y : null;
+            });
+            
+            integralChart.data.datasets[1].data = integralAreaData;
+            
+            // Calculate integral value (approximate)
+            let integralValue = 0;
+            for (let i = 0; i < 20; i++) {
+                const x1 = i / 4;
+                const x2 = (i+1) / 4;
+                if (x1 >= lowerLimit && x2 <= upperLimit) {
+                    const y1 = integralData[i];
+                    const y2 = integralData[i+1];
+                    integralValue += (y1 + y2) * 0.125; // (x2-x1)/2 = 0.125
+                }
+            }
+            
+            // Update chart title with integral value
+            integralChart.options.plugins = {
+                title: {
+                    display: true,
+                    text: `Nilai Integral ≈ ${integralValue.toFixed(3)}`,
+                    font: {
+                        size: 16
+                    }
+                }
+            };
+            
+            integralChart.update();
+        }
+
+        // Initialize charts
+        document.getElementById('functionInput').addEventListener('input', updateCharts);
+        document.getElementById('lowerLimit').addEventListener('input', updateCharts);
+        document.getElementById('upperLimit').addEventListener('input', updateCharts);
+        updateCharts();
+
+        // Report Form Handling
+        document.getElementById('reportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Hide form and show success message
+            document.getElementById('report-form').classList.add('hidden');
+            document.getElementById('success-message').classList.remove('hidden');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Back to form button
+        document.getElementById('back-to-form').addEventListener('click', function() {
+            document.getElementById('report-form').classList.remove('hidden');
+            document.getElementById('success-message').classList.add('hidden');
+        });
+
+        // 3D Visualization
+        function init3DVisualization() {
+            const container = document.getElementById('3d-container');
+            
+            // Clear previous renderer if exists
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
+            
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            
+            // Scene setup
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xf0fdf4);
+            
+            // Camera setup
+            const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+            camera.position.set(3, 3, 5);
+            camera.lookAt(0, 0, 0);
+            
+            // Renderer setup
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(width, height);
+            container.appendChild(renderer.domElement);
+            
+            // Controls
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0x404040);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(1, 1, 1);
+            scene.add(directionalLight);
+            
+            // Create function surface
+            function createFunctionSurface() {
+                const size = 3;
+                const segments = 30;
+                
+                const geometry = new THREE.ParametricBufferGeometry((u, v, target) => {
+                    const x = (u - 0.5) * 2 * size;
+                    const y = (v - 0.5) * 2 * size;
+                    const func = document.getElementById('func3d').value;
+                    
+                    let z;
+                    try {
+                        z = eval(func.replace(/x/g, x).replace(/y/g, y));
+                        // Clamp z to prevent extreme values
+                        z = Math.max(-5, Math.min(5, z));
+                    } catch (e) {
+                        z = 0;
+                    }
+                    
+                    target.set(x, y, z);
+                }, segments, segments);
+                
+                const material = new THREE.MeshPhongMaterial({
+                    color: 0x10b981,
+                    side: THREE.DoubleSide,
+                    wireframe: false,
+                    transparent: true,
+                    opacity: 0.9,
+                    flatShading: true
+                });
+                
+                return new THREE.Mesh(geometry, material);
+            }
+            
+            let surface = createFunctionSurface();
+            scene.add(surface);
+            
+            // Axes helper
+            const axesHelper = new THREE.AxesHelper(3);
+            scene.add(axesHelper);
+            
+            // Grid helper
+            const gridHelper = new THREE.GridHelper(5, 10, 0x888888, 0xcccccc);
+            scene.add(gridHelper);
+            
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                controls.update();
+                renderer.render(scene, camera);
+            }
+            
+            animate();
+            
+            // Handle window resize
+            function onWindowResize() {
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, height);
+            }
+            
+            window.addEventListener('resize', onWindowResize);
+            
+            // Update function when changed
+            document.getElementById('func3d').addEventListener('change', () => {
+                scene.remove(surface);
+                surface = createFunctionSurface();
+                scene.add(surface);
+            });
+            
+            // Handle rotation sliders
+            const rotationInputs = [document.getElementById('rotateX'), document.getElementById('rotateY')];
+            rotationInputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    controls.enabled = false;
+                    surface.rotation.x = THREE.MathUtils.degToRad(document.getElementById('rotateX').value);
+                    surface.rotation.y = THREE.MathUtils.degToRad(document.getElementById('rotateY').value);
+                });
+                input.addEventListener('change', () => {
+                    controls.enabled = true;
+                });
+            });
+        }
+        
+        // Initialize 3D visualization when window loads
+        window.addEventListener('load', function() {
+            init3DVisualization();
+            
+            // Force resize to ensure proper dimensions
+            setTimeout(() => {
+                window.dispatchEvent(new Event('resize'));
+            }, 100);
+        });
+        
+        // Load more materials
+        // document.getElementById('load-more').addEventListener('click', function() {
+        //     // In a real implementation, this would load more content via AJAX
+        //     alert('Fitur ini akan memuat lebih banyak materi kalkulus. Dalam implementasi nyata, ini akan mengambil data dari server.');
+        // });
+        
+        const calculusSelect = document.getElementById('calculusSelect');
+        const inputArea = document.getElementById('inputArea');
+        const result = document.getElementById('result');
+        const calculateBtn = document.getElementById('calculateBtn');
+       
+
+  // Update form sesuai pilihan
+  calculusSelect.addEventListener('change', () => {
+    const val = calculusSelect.value;
+    let form = '';
+    if (val === 'integral') {
+      form = `
+        <label>Masukkan f(x)</label>
+        <input id="integrand" type="text" class="p-2 w-full mb-4 border rounded-md" placeholder="contoh: x^2">
+        <label>Batas bawah</label>
+        <input id="lower" type="number" class="p-2 w-full mb-4 border rounded-md" placeholder="0">
+        <label>Batas atas</label>
+        <input id="upper" type="number" class="p-2 w-full mb-4 border rounded-md" placeholder="1">
+      `;
+    } else if (val === 'turunan') {
+      form = `
+        <label>Masukkan f(x)</label>
+        <input id="deriveFunc" type="text" class="p-2 w-full mb-4 border rounded-md" placeholder="contoh: x^3">
+      `;
+    } else if (val === 'limit') {
+      form = `
+        <label>Masukkan f(x)</label>
+        <input id="limitFunc" type="text" class="p-2 w-full mb-4 border rounded-md" placeholder="contoh: (x^2-4)/(x-2)"> 
+        <label>Arah limit (x→?)</label>
+        <input id="limitPoint" type="number" class="p-2 w-full mb-4 border rounded-md" placeholder="contoh: 2">
+      `;
+    } else if (val === 'deret') {
+      form = `
+        <label>Suku pertama (a₁)</label>
+        <input id="a1" type="number" class="p-2 w-full mb-4 border rounded-md">
+        <label>Beda (d)</label>
+        <input id="diff" type="number" class="p-2 w-full mb-4 border rounded-md">
+        <label>Jumlah n</label>
+        <input id="n" type="number" class="p-2 w-full mb-4 border rounded-md">
+      `;
+    } else if (val === 'matriks') {
+      form = `
+        <label>Masukkan Matriks A (2x2), pisah dengan koma</label>
+        <input id="matrixA" placeholder="1, 2, 3, 4" class="p-2 w-full mb-4 border rounded-md">
+        <label>Masukkan Matriks B (2x2), pisah dengan koma</label>
+        <input id="matrixB" placeholder="5, 6, 7, 8" class="p-2 w-full mb-4 border rounded-md">
+      `;
+    } else if (val === 'statistik') {
+      form = `
+        <label>Masukkan data, pisah koma</label>
+        <input id="data" placeholder="2, 4, 6, 8, 10" class="p-2 w-full mb-4 border rounded-md">
+      `;
+    }
+    inputArea.innerHTML = form;
+  });
+
+  // Hitung sesuai pilihan
+  calculateBtn.addEventListener('click', () => {
+    const val = calculusSelect.value;
+
+    try {
+      if (val === '') {
+        result.innerHTML = "Silakan pilih materi dahulu.";
+        return;
+      }
+      if (val === 'integral') {
+        const f = document.getElementById('integrand').value;
+        const a = parseFloat(document.getElementById('lower').value);
+        const b = parseFloat(document.getElementById('upper').value);
+        // Integrasi secara numerik
+        const fn = math.compile(f);
+        const n = 1000;
+        const h = (b - a) / n;
+        let sum = 0;
+        for (let i = 0; i <= n; i++) {
+          const x = a + i * h;
+          sum += fn.evaluate({ x }) * (i === 0 || i === n ? 0.5 : 1);
+        }
+        const integral = sum * h;
+        result.innerHTML = `∫${f} dx dari ${a} sampai ${b} ≈ ${integral.toFixed(4)}`;
+
+      } else if (val === 'turunan') {
+        const f = document.getElementById('deriveFunc').value;
+        const deriv = math.derivative(f, 'x');
+        result.innerHTML = `Turunan dari ${f} adalah ${deriv}`;
+
+      } else if (val === 'limit') {
+        const f = document.getElementById('limitFunc').value;
+        const point = parseFloat(document.getElementById('limitPoint').value);
+        // Hitung limit secara numerik
+        const fn = math.compile(f);
+        const h = 0.0001;
+        const left = fn.evaluate({ x: point - h });
+        const right = fn.evaluate({ x: point + h });
+        const limit = (left + right) / 2;
+        result.innerHTML = `Limit ${f} saat x→${point} ≈ ${limit.toFixed(4)}`;
+
+      } else if (val === 'deret') {
+        const a1 = parseInt(document.getElementById('a1').value);
+        const d = parseInt(document.getElementById('diff').value);
+        const n = parseInt(document.getElementById('n').value);
+        const sum = n/2 * (2*a1 + (n-1)*d);
+        result.innerHTML = `Jumlah deret aritmatika = ${sum}`;
+
+      } else if (val === 'matriks') {
+        const A = document.getElementById('matrixA').value.split(',').map(Number);
+        const B = document.getElementById('matrixB').value.split(',').map(Number);
+        if (A.length !== 4 || B.length !== 4) {
+          result.innerHTML = "Silakan masukkan 4 elemen per matriks.";
+        } else {
+          let C = A.map((item, i) => item + B[i]);
+          result.innerHTML = `Hasil penjumlahan matriks:<br>[ ${C[0]} ${C[1]} ]<br>[ ${C[2]} ${C[3]} ] `;
+        }
+      } else if (val === 'statistik') {
+        const arr = document.getElementById('data').value.split(',').map(Number);
+        const mean = math.mean(arr);
+        result.innerHTML = `Rata-rata = ${mean}`;
+
+      }
+    } catch (err) {
+      result.innerHTML = `Terjadi kesalahan: ${err}`;
+
+    }
+  });
+
+    </script>
+   
+
+</body>
+</html>
